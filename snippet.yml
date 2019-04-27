@@ -1,7 +1,7 @@
 variables:
   var1: $(dirname $arg0)
 base_task:
-    input: grep '^\S' -n $var1/files/* | sed 's`^.*/files/``'
+    input: grep '^\S' -R -n $var1/files/* | sed 's`^.*/files/``'
     opts:
       - delimiter=':'
       - with-nth=1,3..
