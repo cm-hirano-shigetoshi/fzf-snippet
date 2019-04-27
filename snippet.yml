@@ -1,0 +1,16 @@
+variables:
+  var1: $(dirname $arg0)
+base_task:
+    input: grep '^\S' -n $var1/files/* | sed 's`^.*/files/``'
+    opts:
+      - delimiter=':'
+      - with-nth=1,3..
+      - reverse
+      - preview-window=right:70%
+      - no-mouse
+    preview: perl $var1/preview.pl $var1/files/{1} {2}
+expects:
+    enter:
+      stdout:
+        - prefix: $var1/files/
+
