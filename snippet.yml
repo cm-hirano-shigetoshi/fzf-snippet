@@ -13,4 +13,10 @@ expects:
     enter:
       stdout:
         - prefix: $var1/files/
+    alt-e:
+      stdout:
+        - delimiter: ':'
+        - nth: 1
+        - prefix: $var1/files/
+      pipe: xargs tmux new-window vim
 
